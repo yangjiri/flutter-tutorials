@@ -34,6 +34,7 @@ class HelloPage extends StatefulWidget {
 
 class _HelloPageState extends State<HelloPage> {
   String _message = 'Hello world';
+   int _counter = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,15 +45,21 @@ class _HelloPageState extends State<HelloPage> {
       appBar: AppBar(
         title:Text(widget.title)
       ),
-      body: Text(_message,
-          style: TextStyle(fontSize: 40)
-      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+          Text(_message, style: TextStyle(fontSize: 40)),
+            Text('$_counter', style: TextStyle(fontSize: 40)),
+          ],
+        )),
     );
   }
 
   void _changemessage() {
     setState(() {
-      _message = 'halohaoldga';
+      _message = 'hello jieun';
+      _counter++;
     });
   }
 }
