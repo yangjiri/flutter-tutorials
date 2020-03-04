@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart ';
+import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class CupertinoPage extends StatefulWidget {
@@ -9,6 +9,7 @@ class CupertinoPage extends StatefulWidget {
 class _CupertinoPageState extends State<CupertinoPage> {
   @override
   Widget build(BuildContext context) {
+    bool _switch = true;
     return Scaffold(
       appBar: CupertinoNavigationBar(
         middle: Text('cuper UI'),
@@ -17,9 +18,26 @@ class _CupertinoPageState extends State<CupertinoPage> {
         children: <Widget>[
           CupertinoButton(
             child: Text('cupertino Button'),
-          )
+          ),
+          CupertinoSwitch(
+              value: _switch,
+              onChanged: (bool value){
+                setState(() {
+                  _switch = value;
+                });
+              },
+          ),
+          RaisedButton(
+              child: Text('ssss')
+          ),
+          Switch( value: _switch,
+            onChanged: (bool value){
+              setState(() {
+                _switch = value;
+              });
+            },)
         ],
-      );
-    )
+      ),
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'cupertino_page.dart';
+import 'package:flutter_basic/cupertino_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: CupertinoPage()
+      home: HelloPage('hello world')
 //        HelloPage('hello world')
        );
   }
@@ -52,6 +53,15 @@ class _HelloPageState extends State<HelloPage> {
           children: <Widget>[
           Text(_message, style: TextStyle(fontSize: 40)),
             Text('$_counter', style: TextStyle(fontSize: 40)),
+            RaisedButton(
+              child: Text('go other page'),
+              onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder:(context) => CupertinoPage())
+                );
+              },
+            )
           ],
         )),
     );
